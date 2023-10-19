@@ -6,7 +6,8 @@ export const createUser = createAsyncThunk("auth/createUser", async (data) => {
   try {
     const response = await axios.post(
       "https://task-api-mopy.onrender.com/api/v1/auth/register",
-      data
+      data,
+      { withCredentials: true }
     );
 
     return response.data;
@@ -20,7 +21,8 @@ export const loginUser = createAsyncThunk("auth/loginUser", async (data) => {
   try {
     const response = await axios.post(
       "https://task-api-mopy.onrender.com/api/v1/auth/login",
-      data
+      data,
+      { withCredentials: true }
     );
 
     return response.data;
@@ -34,7 +36,10 @@ export const logoutUser = createAsyncThunk("auth/logoutUser", async () => {
   try {
     const response = await axios.post(
       "https://task-api-mopy.onrender.com/api/v1/auth/logout",
-      ""
+      "",
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -50,7 +55,10 @@ export const getLoggedInUser = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "https://task-api-mopy.onrender.com/api/v1/auth/me"
+        "https://task-api-mopy.onrender.com/api/v1/auth/me",
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;

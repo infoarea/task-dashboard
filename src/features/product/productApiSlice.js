@@ -5,7 +5,10 @@ import axios from "axios";
 export const getAllBrand = createAsyncThunk("product/getAllBrand", async () => {
   try {
     const response = await axios.get(
-      "https://task-api-mopy.onrender.com/api/v1/brand"
+      "https://task-api-mopy.onrender.com/api/v1/brand",
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -21,7 +24,8 @@ export const createBrand = createAsyncThunk(
     try {
       const response = await axios.post(
         "https://task-api-mopy.onrender.com/api/v1/brand",
-        data
+        data,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -37,7 +41,8 @@ export const deleteBrand = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.delete(
-        `https://task-api-mopy.onrender.com/api/v1/brand/${id}`
+        `https://task-api-mopy.onrender.com/api/v1/brand/${id}`,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -54,7 +59,8 @@ export const updateBrand = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/brand/${id}`,
-        data
+        data,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -71,7 +77,8 @@ export const updateBrandStatus = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/brand/brand-status/${id}`,
-        { status }
+        { status },
+        { withCredentials: true }
       );
       return response.data;
     } catch (error) {
@@ -87,7 +94,8 @@ export const createProductTag = createAsyncThunk(
     try {
       const response = await axios.post(
         "https://task-api-mopy.onrender.com/api/v1/tag",
-        data
+        data,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -103,7 +111,10 @@ export const getAllProductTag = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "https://task-api-mopy.onrender.com/api/v1/tag"
+        "https://task-api-mopy.onrender.com/api/v1/tag",
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -119,7 +130,10 @@ export const deleteProductTag = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.delete(
-        `https://task-api-mopy.onrender.com/api/v1/tag/${id}`
+        `https://task-api-mopy.onrender.com/api/v1/tag/${id}`,
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -136,7 +150,10 @@ export const updateProductTag = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/tag/${id}`,
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -153,7 +170,8 @@ export const updateTagStatus = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/tag/tag-status/${id}`,
-        { status }
+        { status },
+        { withCredentials: true }
       );
       return response.data;
     } catch (error) {
@@ -168,7 +186,10 @@ export const getAllCategory = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "https://task-api-mopy.onrender.com/api/v1/category"
+        "https://task-api-mopy.onrender.com/api/v1/category",
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -185,7 +206,10 @@ export const createCategory = createAsyncThunk(
     try {
       const response = await axios.post(
         "https://task-api-mopy.onrender.com/api/v1/category",
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -201,7 +225,10 @@ export const deleteCategory = createAsyncThunk(
   async (id) => {
     try {
       const response = await axios.delete(
-        `https://task-api-mopy.onrender.com/api/v1/category/${id}`
+        `https://task-api-mopy.onrender.com/api/v1/category/${id}`,
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -218,7 +245,8 @@ export const updateCategory = createAsyncThunk(
     try {
       const response = await axios.patch(
         `https://task-api-mopy.onrender.com/api/v1/category/${id}`,
-        data
+        data,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -232,7 +260,10 @@ export const updateCategory = createAsyncThunk(
 export const getAllTask = createAsyncThunk("product/getAllTask", async () => {
   try {
     const response = await axios.get(
-      "https://task-api-mopy.onrender.com/api/v1/task"
+      "https://task-api-mopy.onrender.com/api/v1/task",
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -248,7 +279,8 @@ export const createTask = createAsyncThunk(
     try {
       const response = await axios.post(
         "https://task-api-mopy.onrender.com/api/v1/task",
-        data
+        data,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -262,7 +294,8 @@ export const createTask = createAsyncThunk(
 export const deleteTask = createAsyncThunk("product/deleteTask", async (id) => {
   try {
     const response = await axios.delete(
-      `https://task-api-mopy.onrender.com/api/v1/task/${id}`
+      `https://task-api-mopy.onrender.com/api/v1/task/${id}`,
+      { withCredentials: true }
     );
 
     return response.data;
@@ -278,7 +311,8 @@ export const updateTask = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/task/${data.id}`,
-        data
+        data,
+        { withCredentials: true }
       );
 
       console.log(response);
@@ -297,7 +331,8 @@ export const updateTaskStatus = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/task/task-status/${id}`,
-        { status }
+        { status },
+        { withCredentials: true }
       );
       return response.data;
     } catch (error) {

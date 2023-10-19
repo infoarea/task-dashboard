@@ -7,7 +7,8 @@ export const getAllPermission = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "https://task-api-mopy.onrender.com/api/v1/permission"
+        "https://task-api-mopy.onrender.com/api/v1/permission",
+        { withCredentials: true }
       );
 
       return response.data;
@@ -24,7 +25,8 @@ export const createPermission = createAsyncThunk(
     try {
       const response = await axios.post(
         "https://task-api-mopy.onrender.com/api/v1/permission",
-        data
+        data,
+        { withCredentials: true }
       );
 
       return response.data;
@@ -40,7 +42,10 @@ export const deletePermission = createAsyncThunk(
   async (id) => {
     try {
       await axios.delete(
-        `https://task-api-mopy.onrender.com/api/v1/permission/${id}`
+        `https://task-api-mopy.onrender.com/api/v1/permission/${id}`,
+        {
+          withCredentials: true,
+        }
       );
 
       return id;
@@ -57,7 +62,10 @@ export const updatePermissionStatus = createAsyncThunk(
     try {
       const response = await axios.patch(
         `https://task-api-mopy.onrender.com/api/v1/permission/permission-status/${id}`,
-        { status }
+        { status },
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -71,7 +79,10 @@ export const updatePermissionStatus = createAsyncThunk(
 export const getAllRoles = createAsyncThunk("user/getAllRoles", async () => {
   try {
     const response = await axios.get(
-      "https://task-api-mopy.onrender.com/api/v1/role"
+      "https://task-api-mopy.onrender.com/api/v1/role",
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -85,7 +96,8 @@ export const createRole = createAsyncThunk("user/createRole", async (data) => {
   try {
     const response = await axios.post(
       "https://task-api-mopy.onrender.com/api/v1/role",
-      data
+      data,
+      { withCredentials: true }
     );
 
     return response.data;
@@ -99,7 +111,10 @@ export const updateRole = createAsyncThunk("user/updateRole", async (data) => {
   try {
     const response = await axios.put(
       `https://task-api-mopy.onrender.com/api/v1/role/${data.id}`,
-      data
+      data,
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -111,7 +126,9 @@ export const updateRole = createAsyncThunk("user/updateRole", async (data) => {
 //Delete Role
 export const deleteRole = createAsyncThunk("user/deleteRole", async (id) => {
   try {
-    await axios.delete(`https://task-api-mopy.onrender.com/api/v1/role/${id}`);
+    await axios.delete(`https://task-api-mopy.onrender.com/api/v1/role/${id}`, {
+      withCredentials: true,
+    });
 
     return id;
   } catch (error) {
@@ -126,7 +143,10 @@ export const updateRoleStatus = createAsyncThunk(
     try {
       const response = await axios.patch(
         `https://task-api-mopy.onrender.com/api/v1/role/role-status/${id}`,
-        { status }
+        { status },
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -140,7 +160,10 @@ export const updateRoleStatus = createAsyncThunk(
 export const getAllUsers = createAsyncThunk("user/getAllUsers", async () => {
   try {
     const response = await axios.get(
-      "https://task-api-mopy.onrender.com/api/v1/user"
+      "https://task-api-mopy.onrender.com/api/v1/user",
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -154,7 +177,8 @@ export const userCreate = createAsyncThunk("user/userCreate", async (data) => {
   try {
     const response = await axios.post(
       "https://task-api-mopy.onrender.com/api/v1/user",
-      data
+      data,
+      { withCredentials: true }
     );
 
     return response.data;
@@ -166,7 +190,9 @@ export const userCreate = createAsyncThunk("user/userCreate", async (data) => {
 //Delete User
 export const deleteUser = createAsyncThunk("user/deleteUser", async (id) => {
   try {
-    await axios.delete(`https://task-api-mopy.onrender.com/api/v1/user/${id}`);
+    await axios.delete(`https://task-api-mopy.onrender.com/api/v1/user/${id}`, {
+      withCredentials: true,
+    });
 
     return id;
   } catch (error) {
@@ -179,7 +205,10 @@ export const updateUser = createAsyncThunk("user/updateUser", async (data) => {
   try {
     const response = await axios.put(
       `https://task-api-mopy.onrender.com/api/v1/user/${data.id}`,
-      data
+      data,
+      {
+        withCredentials: true,
+      }
     );
 
     return response.data;
@@ -195,7 +224,10 @@ export const updateUserPassword = createAsyncThunk(
     try {
       const response = await axios.patch(
         `https://task-api-mopy.onrender.com/api/v1/user/${data.id}`,
-        data.passwordData
+        data.passwordData,
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -211,7 +243,10 @@ export const updateUserProfilePicture = createAsyncThunk(
     try {
       const response = await axios.put(
         `https://task-api-mopy.onrender.com/api/v1/user/profile/${id}`,
-        data
+        data,
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
@@ -228,7 +263,10 @@ export const UpdateUserStatus = createAsyncThunk(
     try {
       const response = await axios.patch(
         `https://task-api-mopy.onrender.com/api/v1/user/user-status/${id}`,
-        { status }
+        { status },
+        {
+          withCredentials: true,
+        }
       );
 
       return response.data;
